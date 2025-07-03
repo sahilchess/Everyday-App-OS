@@ -75,3 +75,5 @@ def dice_roller():
     print("Total:", sum(rolls))
 
 
+
+def quizzler():
