@@ -74,6 +74,37 @@ def dice_roller():
     print("Results:", rolls)
     print("Total:", sum(rolls))
 
-
-
 def quizzler():
+    pass
+
+def stock_price_checker():
+    pass
+
+def hangman():
+    pass
+
+def roman_numeral_converter():
+    pass
+
+
+
+
+
+
+match appnum:
+    case 1:
+        calculator()
+    case 2:
+        password_generator()
+    case 3:
+        dice_roller()
+    case 4:
+        quizzler()
+    case 5:
+        stock_price_checker()
+    case 6:
+        hangman()
+    case 7:
+        roman_numeral_converter()
+    case _:  # Default case
+        print("Invalid application number")
