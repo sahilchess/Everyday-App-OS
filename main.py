@@ -12,7 +12,7 @@ appnum = int(input("Welcome to Simple Project!"
                    "5. Stock Price Checker\n"
                    "6. Hangman\n"
                    "7. Roman Numeral Converter\n\n"))
-
+print("\n\nYou have selected application number:", appnum , "\n\n")
 
 def calculator():
     print("╔═══════════════════════════════╗")
@@ -32,9 +32,9 @@ def calculator():
     print("╚═══════╩═══════╩═══════╩═══════╝")
     print("\n\n")
 
-    onum= int(input("enter the first number"))
-    tnum= int(input("enter the second number"))
-    operation= str(input("enter the operation")) 
+    onum= int(input("enter the first number: "))
+    tnum= int(input("enter the second number: "))
+    operation= str(input("enter the operation (+, -, *, /, %): ")) 
     if operation not in ["+", "-", "*", "/", "%"]:
         print("Invalid operation. Please enter one of +, -, *, /, %.")
         return
