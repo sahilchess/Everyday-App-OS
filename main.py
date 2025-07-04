@@ -72,17 +72,30 @@ def dice_roller():
     print("Results:", rolls)
     print("Total:", sum(rolls))
 
+
+
+
 def quizzler():
     print("Welcome to the Quizzler!")
+    aquestions = [
+        "What is the capital of France?",
+        "What is 2 + 2?",
+        "What is the largest planet in our solar system?"
+    ]
     questions = {
         "What is the capital of France?": "paris",
         "What is 2 + 2?": "4",
         "What is the largest planet in our solar system?": "jupiter"
     }
     score = 0
-    qnum=1
-    for a in range(len(questions)):
-        answer = input(f"Question #{qnum}: {questions[a]} ").lower()     
+    for qnum, question in enumerate(aquestions, start=1):
+        answer = input(f"Question #{qnum}: {question}\n").lower()
+        if answer == questions[question]:
+            score += 1
+        else:
+            print(f"Oh poop, you lost. womp womp. your final score was {score} and you got through {qnum} question(s).")
+            return
+    print(f"Congratulations, you won! horray! your final score was {score} and you got through all the question.")
 
 
 def hangman():
