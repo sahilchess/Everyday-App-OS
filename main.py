@@ -2,16 +2,14 @@ import random
 import string
 
 
-
 appnum = int(input("Welcome to Simple Project!" 
                    "Choose an application:\n"
                    "1. Calculator\n"
                    "2. Password Generator\n"
                    "3. Dice Roller Simulator\n"
                    "4. Quizzler\n"
-                   "5. Stock Price Checker\n"
-                   "6. Hangman\n"
-                   "7. Roman Numeral Converter\n\n"))
+                   "5. Hangman\n"
+                   "6. Roman Numeral Converter\n\n"))
 print("\n\nYou have selected application number:", appnum , "\n\n")
 
 def calculator():
@@ -77,11 +75,113 @@ def dice_roller():
 def quizzler():
     pass
 
-def stock_price_checker():
-    pass
-
 def hangman():
-    pass
+    man1 = """
+     ------
+     |    |
+     |    O
+     |   /|\\
+     |   / \\
+     |
+    ---
+    """
+    man2 = """
+     ------
+     |    |
+     |    O
+     |   /|\\
+     |   / 
+     |
+    ---
+    """
+    man3 = """
+     ------
+     |    |
+     |    O
+     |   /|\\
+     |   
+     |
+    ---
+    """
+    man4 = """
+     ------
+     |    |
+     |    O
+     |   /|
+     |   
+     |
+    ---
+    """
+    man5 = """
+     ------
+     |    |
+     |    O
+     |    |
+     |   
+    ---
+    ---
+    """
+    man6 = """
+     ------
+     |    |
+     |    O
+     |   
+     |   
+     |
+    ---
+    """
+    man7 = """
+     ------
+     |    |
+     |    
+     |   
+     |   
+     |
+    ---
+    """
+    hangman_stages = [man1, man2, man3, man4, man5, man6, man7]
+    hangman_topics = ["coding_langs", "sports", "animals", "food", "colors"]
+    hangman_words = {
+        "coding_langs": ["python", "javascript", "java", "csharp", "ruby"],
+        "sports": ["soccer", "basketball", "tennis", "cricket"],
+        "animals": ["elephant", "giraffe", "kangaroo", "dolphin"],
+        "food": ["pizza", "sushi", "burger", "pasta"],
+        "colors": ["red", "blue", "green", "yellow"]
+    }
+    print("Welcome to Hangman!")
+
+    # Game logic goes here
+
+    topic = random.choice(hangman_topics)
+    print(f"Topic: {topic}")
+    word = random.choice(hangman_words[topic])
+    guessed_letters = []
+    attempts = len(word)
+    current_stage = 0
+    print("Guess the word:")
+    print("_ " * len(word))
+    while hangman_stages[current_stage] != man7:
+        guess = input("Enter a letter: ").lower()
+        if len(guess) != 1:
+            print("enter a singlt letter")
+        elif guess in guessed_letters:
+            print("you already entered that lettter, enter a different one")
+        elif guess in word:
+            guessed_letters.append(guess)
+            print("Good guess!")
+        else:
+            guessed_letters.append(guess)
+            current_stage += 1
+            print("Wrong guess!")
+        print(hangman_stages[current_stage])
+        current_word = ''.join([letter if letter in guessed_letters else '_ ' for letter in word])
+        print("Current word:", current_word)
+        if '_ ' not in current_word:
+            print("Congratulations! You've guessed the word:", word)
+            return
+        if current_stage == len(hangman_stages) - 1:
+            print("You've run out of attempts!")
+            break
 
 def roman_numeral_converter():
     pass
@@ -101,10 +201,8 @@ match appnum:
     case 4:
         quizzler()
     case 5:
-        stock_price_checker()
-    case 6:
         hangman()
-    case 7:
+    case 6:
         roman_numeral_converter()
     case _:  # Default case
         print("Invalid application number")
