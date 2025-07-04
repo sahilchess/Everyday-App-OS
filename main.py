@@ -73,7 +73,17 @@ def dice_roller():
     print("Total:", sum(rolls))
 
 def quizzler():
-    pass
+    print("Welcome to the Quizzler!")
+    questions = {
+        "What is the capital of France?": "paris",
+        "What is 2 + 2?": "4",
+        "What is the largest planet in our solar system?": "jupiter"
+    }
+    score = 0
+    qnum=1
+    for a in range(len(questions)):
+        answer = input(f"Question #{qnum}: {questions[a]} ").lower()     
+
 
 def hangman():
     man1 = """
@@ -184,7 +194,28 @@ def hangman():
             break
 
 def roman_numeral_converter():
-    pass
+    print("Welcome to the Roman Numeral Converter!")
+    roman_numerals = {
+        1: "I", 4: "IV", 5: "V", 9: "IX", 10: "X",
+        40: "XL", 50: "L", 90: "XC", 100: "C",
+        400: "CD", 500: "D", 900: "CM", 1000: "M"
+    }
+    
+    def int_to_roman(num):
+        result = ""
+        for value in sorted(roman_numerals.keys(), reverse=True):
+            while num >= value:
+                result += roman_numerals[value]
+                num -= value
+        return result
+    
+    number = int(input("Enter an integer to convert to Roman numeral: "))
+    if number <= 0:
+        print("Please enter a positive integer.")
+    else:
+        roman_numeral = int_to_roman(number)
+        print(f"Roman numeral for {number} is {roman_numeral}")
+
 
 
 
