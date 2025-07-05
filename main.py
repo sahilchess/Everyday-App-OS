@@ -300,67 +300,6 @@ def hangman():
     print(f"The word was: {word.upper()}")
 
 
-# Roman Numeral Conversion Data
-roman_numerals = {
-    1000: "M", 900: "CM", 500: "D", 400: "CD", 
-    100: "C", 90: "XC", 50: "L", 40: "XL", 
-    10: "X", 9: "IX", 5: "V", 4: "IV", 1: "I"
-}
-
-
-
-
-
-
-
-
-def ar(arabic):
-    """Convert Arabic number to Roman numeral"""
-    original_num = arabic
-    result = ""
-    for value in sorted(roman_numerals.keys(), reverse=True): 
-        while arabic >= value:
-            result += roman_numerals[value]
-            arabic -= value
-    
-    print(f"✅ The Roman numeral for {original_num} is: {result}")
-    return result
-
-
-
-
-
-
-
-
-def ra(roman):
-    """Convert Roman numeral to Arabic number"""
-    roman = roman.upper()
-    total = 0
-    prev_value = 0
-    
-    # Validate input
-    for char in roman:
-        if char not in roman_numerals.values():
-            print(f"❌ Invalid Roman numeral character: {char}")
-            return None
-    
-    # Convert to Arabic
-    for char in roman:
-        value = next(key for key, val in roman_numerals.items() if val == char)
-        if value > prev_value:
-            total += value - 2 * prev_value
-        else:
-            total += value
-        prev_value = value
-    
-    print(f"✅ The Arabic numeral for {roman} is: {total}")
-    return total
-
-
-
-
-
 
 
 
@@ -374,6 +313,51 @@ def roman_numeral_converter():
     print("2. Roman to Arabic (ra)")
     print("-" * 40)
     
+    # Roman Numeral Conversion Data
+    roman_numerals = {
+        1000: "M", 900: "CM", 500: "D", 400: "CD", 
+        100: "C", 90: "XC", 50: "L", 40: "XL", 
+        10: "X", 9: "IX", 5: "V", 4: "IV", 1: "I"
+    }
+
+
+
+    def ar(arabic):
+        """Convert Arabic number to Roman numeral"""
+        original_num = arabic
+        result = ""
+        for value in sorted(roman_numerals.keys(), reverse=True): 
+            while arabic >= value:
+                result += roman_numerals[value]
+                arabic -= value
+        
+        print(f"✅ The Roman numeral for {original_num} is: {result}")
+        return result
+
+    def ra(roman):
+        """Convert Roman numeral to Arabic number"""
+        roman = roman.upper()
+        total = 0
+        prev_value = 0
+        
+        # Validate input
+        for char in roman:
+            if char not in roman_numerals.values():
+                print(f"❌ Invalid Roman numeral character: {char}")
+                return None
+        
+        # Convert to Arabic
+        for char in roman:
+            value = next(key for key, val in roman_numerals.items() if val == char)
+            if value > prev_value:
+                total += value - 2 * prev_value
+            else:
+                total += value
+            prev_value = value
+        
+        print(f"✅ The Arabic numeral for {roman} is: {total}")
+        return total
+
     decision = input("Enter your choice (ar/ra): ").lower().strip()
     
     if decision == "ar":
