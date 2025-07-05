@@ -1,18 +1,28 @@
 import random
 import string
 
+# Main menu and application selection
+print("=" * 50)
+print("         WELCOME TO SIMPLE PROJECT")
+print("=" * 50)
+print("Choose an application:")
+print("1. Calculator")
+print("2. Password Generator") 
+print("3. Dice Roller Simulator")
+print("4. Quizzler")
+print("5. Hangman")
+print("6. Roman Numeral Converter")
+print("=" * 50)
 
-appnum = int(input("Welcome to Simple Project!" 
-                   "Choose an application:\n"
-                   "1. Calculator\n"
-                   "2. Password Generator\n"
-                   "3. Dice Roller Simulator\n"
-                   "4. Quizzler\n"
-                   "5. Hangman\n"
-                   "6. Roman Numeral Converter\n\n"))
-print("\n\nYou have selected application number:", appnum , "\n\n")
+appnum = int(input("Enter your choice (1-6): "))
+print(f"\nYou have selected application number: {appnum}")
+print("=" * 50)
 
 def calculator():
+    print("\n" + "=" * 40)
+    print("           PYTHONCALC 1.0")
+    print("=" * 40)
+    
     print("╔═══════════════════════════════╗")
     print("║         PythonCalc 1.0        ║")
     print("╠═══════════════════════════════╣")
@@ -28,77 +38,145 @@ def calculator():
     print("╠═══════╬═══════╬═══════╬═══════╣")
     print("║   0   ║   .   ║   =   ║   +   ║")
     print("╚═══════╩═══════╩═══════╩═══════╝")
-    print("\n\n")
+    print()
 
-    onum= int(input("enter the first number: "))
-    tnum= int(input("enter the second number: "))
-    operation= str(input("enter the operation (+, -, *, /, %): ")) 
-    if operation not in ["+", "-", "*", "/", "%"]:
-        print("Invalid operation. Please enter one of +, -, *, /, %.")
-        return
-    print("\n\n")
-    if operation == "+":
-        print(onum + tnum)
-    elif operation == "-":
-        print(onum - tnum)
-    elif operation == "*":
-        print(onum * tnum)
-    elif operation == "/":
-        print(onum / tnum)
-    elif operation == "%":
-        print(onum % tnum)
-    else:
-        print("oops, something went wrong")
+    try:
+        onum = int(input("Enter the first number: "))
+        tnum = int(input("Enter the second number: "))
+        operation = input("Enter the operation (+, -, *, /, %): ").strip()
+        
+        if operation not in ["+", "-", "*", "/", "%"]:
+            print("❌ Invalid operation. Please enter one of +, -, *, /, %.")
+            return
+        
+        print("\n" + "-" * 30)
+        print("RESULT:")
+        
+        if operation == "+":
+            result = onum + tnum
+            print(f"{onum} + {tnum} = {result}")
+        elif operation == "-":
+            result = onum - tnum
+            print(f"{onum} - {tnum} = {result}")
+        elif operation == "*":
+            result = onum * tnum
+            print(f"{onum} * {tnum} = {result}")
+        elif operation == "/":
+            if tnum == 0:
+                print("❌ Error: Cannot divide by zero!")
+                return
+            result = onum / tnum
+            print(f"{onum} / {tnum} = {result}")
+        elif operation == "%":
+            if tnum == 0:
+                print("❌ Error: Cannot modulo by zero!")
+                return
+            result = onum % tnum
+            print(f"{onum} % {tnum} = {result}")
+        
+        print("-" * 30)
+        
+    except ValueError:
+        print("❌ Error: Please enter valid numbers!")
 def password_generator():
-
-    print("Welcome to the Password Generator!")
-    length = int(input("Enter the desired length of the password: "))
+    print("\n" + "=" * 40)
+    print("        PASSWORD GENERATOR")
+    print("=" * 40)
     
-    if length < 4:
-        print("Password length should be at least 4 characters.")
-        return
-    
-    characters = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(characters) for i in range(length))
-    
-    print(f"Generated Password: {password}")
+    try:
+        length = int(input("Enter the desired length of the password: "))
+        
+        if length < 4:
+            print("❌ Password length should be at least 4 characters.")
+            return
+        
+        characters = string.ascii_letters + string.digits + string.punctuation
+        password = ''.join(random.choice(characters) for i in range(length))
+        
+        print("\n" + "-" * 40)
+        print("🔐 GENERATED PASSWORD:")
+        print(f"   {password}")
+        print("-" * 40)
+        print(f"✅ Password length: {len(password)} characters")
+        
+    except ValueError:
+        print("❌ Error: Please enter a valid number!")
 def dice_roller():
-
-    print("Welcome to the Dice Roller Simulator!")
-    num_dice = int(input("Enter the number of dice to roll: "))
-    num_sides = int(input("Enter the number of sides on each die: "))
-    rolls = [random.randint(1, num_sides) for dice in range(num_dice)]
-    print(f"Rolling {num_dice} {num_sides}-sided dice...")
-    print("Results:", rolls)
-    print("Total:", sum(rolls))
+    print("\n" + "=" * 40)
+    print("       DICE ROLLER SIMULATOR")
+    print("=" * 40)
+    
+    try:
+        num_dice = int(input("Enter the number of dice to roll: "))
+        num_sides = int(input("Enter the number of sides on each die: "))
+        
+        if num_dice <= 0 or num_sides <= 0:
+            print("❌ Please enter positive numbers for dice and sides!")
+            return
+        
+        rolls = [random.randint(1, num_sides) for dice in range(num_dice)]
+        
+        print(f"\n🎲 Rolling {num_dice} {num_sides}-sided dice...")
+        print("-" * 30)
+        print(f"Results: {rolls}")
+        print(f"Total: {sum(rolls)}")
+        print("-" * 30)
+        
+    except ValueError:
+        print("❌ Error: Please enter valid numbers!")
 
 
 
 
 def quizzler():
-    print("Welcome to the Quizzler!")
+    print("\n" + "=" * 40)
+    print("            QUIZZLER")
+    print("=" * 40)
+    
     aquestions = [
         "What is the capital of France?",
         "What is 2 + 2?",
         "What is the largest planet in our solar system?"
     ]
+    
     questions = {
         "What is the capital of France?": "paris",
         "What is 2 + 2?": "4",
         "What is the largest planet in our solar system?": "jupiter"
     }
+    
     score = 0
+    total_questions = len(aquestions)
+    
+    print(f"Welcome! You have {total_questions} questions to answer.")
+    print("-" * 40)
+    
     for qnum, question in enumerate(aquestions, start=1):
-        answer = input(f"Question #{qnum}: {question}\n").lower()
+        print(f"\nQuestion #{qnum}/{total_questions}:")
+        print(f"📝 {question}")
+        answer = input("Your answer: ").lower().strip()
+        
         if answer == questions[question]:
             score += 1
+            print("✅ Correct!")
         else:
-            print(f"Oh poop, you lost. womp womp. your final score was {score} and you got through {qnum} question(s).")
+            print(f"❌ Wrong! The correct answer was: {questions[question].title()}")
+            print(f"\n🎯 Final Score: {score}/{qnum}")
+            print(f"You answered {qnum} question(s) before getting one wrong.")
+            print("Better luck next time! 🍀")
             return
-    print(f"Congratulations, you won! horray! your final score was {score} and you got through all the question.")
+    
+    print(f"\n🎉 CONGRATULATIONS! 🎉")
+    print(f"🏆 Perfect Score: {score}/{total_questions}")
+    print("You answered all questions correctly! 🌟")
 
 
 def hangman():
+    print("\n" + "=" * 40)
+    print("            HANGMAN")
+    print("=" * 40)
+    
+    # Hangman ASCII art stages
     man1 = """
      ------
      |    |
@@ -141,7 +219,7 @@ def hangman():
      |    O
      |    |
      |   
-    ---
+     |
     ---
     """
     man6 = """
@@ -162,6 +240,7 @@ def hangman():
      |
     ---
     """
+    
     hangman_stages = [man1, man2, man3, man4, man5, man6, man7]
     hangman_topics = ["coding_langs", "sports", "animals", "food", "colors"]
     hangman_words = {
@@ -171,104 +250,125 @@ def hangman():
         "food": ["pizza", "sushi", "burger", "pasta"],
         "colors": ["red", "blue", "green", "yellow"]
     }
-    print("Welcome to Hangman!")
-
-    # Game logic goes here
 
     topic = random.choice(hangman_topics)
-    print(f"Topic: {topic}")
     word = random.choice(hangman_words[topic])
     guessed_letters = []
-    attempts = len(word)
     current_stage = 0
+    
+    print(f"📂 Topic: {topic.replace('_', ' ').title()}")
+    print(f"🎯 Word length: {len(word)} letters")
+    print("-" * 40)
     print("Guess the word:")
     print("_ " * len(word))
-    while hangman_stages[current_stage] != man7:
-        guess = input("Enter a letter: ").lower()
-        if len(guess) != 1:
-            print("enter a singlt letter")
+    print()
+    
+    while current_stage < len(hangman_stages) - 1:
+        guess = input("Enter a letter: ").lower().strip()
+        
+        if len(guess) != 1 or not guess.isalpha():
+            print("❌ Please enter a single letter!")
+            continue
         elif guess in guessed_letters:
-            print("you already entered that lettter, enter a different one")
+            print("❌ You already guessed that letter!")
+            continue
         elif guess in word:
             guessed_letters.append(guess)
-            print("Good guess!")
+            print("✅ Good guess!")
         else:
             guessed_letters.append(guess)
             current_stage += 1
-            print("Wrong guess!")
+            print("❌ Wrong guess!")
+        
         print(hangman_stages[current_stage])
         current_word = ''.join([letter if letter in guessed_letters else '_ ' for letter in word])
-        print("Current word:", current_word)
+        print(f"Current word: {current_word}")
+        print(f"Guessed letters: {', '.join(sorted(guessed_letters))}")
+        print(f"Wrong guesses left: {len(hangman_stages) - 1 - current_stage}")
+        print("-" * 30)
+        
         if '_ ' not in current_word:
-            print("Congratulations! You've guessed the word:", word)
+            print("🎉 Congratulations! You've guessed the word:", word.upper())
             return
-        if current_stage == len(hangman_stages) - 1:
-            print("You've run out of attempts!")
-            break
+    
+    print("💀 Game Over! You've run out of attempts!")
+    print(f"The word was: {word.upper()}")
 
 
+# Roman Numeral Conversion Data
 roman_numerals = {
     1000: "M", 900: "CM", 500: "D", 400: "CD", 
     100: "C", 90: "XC", 50: "L", 40: "XL", 
-    10: "X", 9: "IX",5: "V", 4: "IV", 1: "I"
+    10: "X", 9: "IX", 5: "V", 4: "IV", 1: "I"
 }
 
 def ar(arabic):
+    """Convert Arabic number to Roman numeral"""
+    original_num = arabic
     result = ""
-    for value in sorted(roman_numerals): 
+    for value in sorted(roman_numerals.keys(), reverse=True): 
         while arabic >= value:
-            result = result + roman_numerals[value]
-            arabic = arabic-value
-    print(f"The roman numeral for {arabic} is: {result}")
+            result += roman_numerals[value]
+            arabic -= value
+    
+    print(f"✅ The Roman numeral for {original_num} is: {result}")
     return result
 
-
-
-
-
-
-
 def ra(roman):
+    """Convert Roman numeral to Arabic number"""
     roman = roman.upper()
     total = 0
     prev_value = 0
+    
+    # Validate input
     for char in roman:
         if char not in roman_numerals.values():
-            print("Invalid Roman numeral")
-            return
+            print(f"❌ Invalid Roman numeral character: {char}")
+            return None
+    
+    # Convert to Arabic
+    for char in roman:
         value = next(key for key, val in roman_numerals.items() if val == char)
         if value > prev_value:
             total += value - 2 * prev_value
         else:
             total += value
         prev_value = value
-    print(f"The Arabic numeral for {roman} is: {total}")
-    return total
     
-
-
-
-
+    print(f"✅ The Arabic numeral for {roman} is: {total}")
+    return total
 
 def roman_numeral_converter():
-    print("Welcome to the Roman Numeral Converter!")
-
-    decision = input("roman to arabic | or | arabic to roman? (ra/ar)")
+    print("\n" + "=" * 40)
+    print("      ROMAN NUMERAL CONVERTER")
+    print("=" * 40)
+    
+    print("Choose conversion type:")
+    print("1. Arabic to Roman (ar)")
+    print("2. Roman to Arabic (ra)")
+    print("-" * 40)
+    
+    decision = input("Enter your choice (ar/ra): ").lower().strip()
+    
     if decision == "ar":
-        arabic_int = input(" what be the integer that you need to convert? ")
-        if arabic_int.isdigit() and int(arabic_int) > 0:
-            arabic_int = int(arabic_int)   
-            ar(arabic_int)
-        else:
-            print("aye! enter a positve whole number or as some might call it, a real number.")
+        try:
+            arabic_int = input("Enter the integer to convert: ").strip()
+            if arabic_int.isdigit() and int(arabic_int) > 0:
+                arabic_int = int(arabic_int)   
+                ar(arabic_int)
+            else:
+                print("❌ Please enter a positive whole number!")
+        except ValueError:
+            print("❌ Please enter a valid number!")
+            
     elif decision == "ra":
-        roman_str = input("what be the roman numeral that you need to convert? ")
-        if isinstance(roman_str, str):
+        roman_str = input("Enter the Roman numeral to convert: ").strip()
+        if roman_str:
             ra(roman_str)
         else:
-            print("aye! enter a valid roman numeral.")
+            print("❌ Please enter a valid Roman numeral!")
     else:
-        print("aye! enter a valid decision, either 'ar' or 'ra'.")
+        print("❌ Invalid choice! Please enter 'ar' or 'ra'.")
 
 
 
@@ -278,6 +378,11 @@ def roman_numeral_converter():
 
 
 
+
+# Application Router
+print("\n" + "=" * 50)
+print("            STARTING APPLICATION...")
+print("=" * 50)
 
 match appnum:
     case 1:
@@ -293,4 +398,8 @@ match appnum:
     case 6:
         roman_numeral_converter()
     case _:  # Default case
-        print("Invalid application number")
+        print("❌ Invalid application number! Please choose 1-6.")
+
+print("\n" + "=" * 50)
+print("       THANK YOU FOR USING SIMPLE PROJECT!")
+print("=" * 50)
