@@ -3,7 +3,7 @@ import string
 
 # Main menu and application selection
 print("=" * 50)
-print("         WELCOME TO SIMPLE PROJECT")
+print("         WELCOME TO EVERYDAY APP OS")
 print("=" * 50)
 print("Choose an application:")
 print("1. Calculator")
@@ -43,10 +43,10 @@ def calculator():
     try:
         onum = int(input("Enter the first number: "))
         tnum = int(input("Enter the second number: "))
-        operation = input("Enter the operation (+, -, *, /, %): ").strip()
+        operation = input("Enter the operation (+, -, *, /): ").strip()
         
-        if operation not in ["+", "-", "*", "/", "%"]:
-            print("❌ Invalid operation. Please enter one of +, -, *, /, %.")
+        if operation not in ["+", "-", "*", "/"]:
+            print("❌ Invalid operation. Please enter one of +, -, *, /.")
             return
         
         print("\n" + "-" * 30)
@@ -67,13 +67,6 @@ def calculator():
                 return
             result = onum / tnum
             print(f"{onum} / {tnum} = {result}")
-        elif operation == "%":
-            if tnum == 0:
-                print("❌ Error: Cannot modulo by zero!")
-                return
-            result = onum % tnum
-            print(f"{onum} % {tnum} = {result}")
-        
         print("-" * 30)
         
     except ValueError:
@@ -401,5 +394,5 @@ match appnum:
         print("❌ Invalid application number! Please choose 1-6.")
 
 print("\n" + "=" * 50)
-print("       THANK YOU FOR USING SIMPLE PROJECT!")
+print("       THANK YOU FOR USING EVERYDAY APP OS!")
 print("=" * 50)

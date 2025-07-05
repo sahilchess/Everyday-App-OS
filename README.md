@@ -1,4 +1,4 @@
-# MiniAppHub
+# EverydayApp OS
 
 
 
