@@ -206,28 +206,72 @@ def hangman():
             print("You've run out of attempts!")
             break
 
+
+roman_numerals = {
+    1000: "M", 900: "CM", 500: "D", 400: "CD", 
+    100: "C", 90: "XC", 50: "L", 40: "XL", 
+    10: "X", 9: "IX",5: "V", 4: "IV", 1: "I"
+}
+
+def ar(arabic):
+    result = ""
+    for value in sorted(roman_numerals): 
+        while arabic >= value:
+            result = result + roman_numerals[value]
+            arabic = arabic-value
+    print(f"The roman numeral for {arabic} is: {result}")
+    return result
+
+
+
+
+
+
+
+def ra(roman):
+    roman = roman.upper()
+    total = 0
+    prev_value = 0
+    for char in roman:
+        if char not in roman_numerals.values():
+            print("Invalid Roman numeral")
+            return
+        value = next(key for key, val in roman_numerals.items() if val == char)
+        if value > prev_value:
+            total += value - 2 * prev_value
+        else:
+            total += value
+        prev_value = value
+    print(f"The Arabic numeral for {roman} is: {total}")
+    return total
+    
+
+
+
+
+
 def roman_numeral_converter():
     print("Welcome to the Roman Numeral Converter!")
-    roman_numerals = {
-        1: "I", 4: "IV", 5: "V", 9: "IX", 10: "X",
-        40: "XL", 50: "L", 90: "XC", 100: "C",
-        400: "CD", 500: "D", 900: "CM", 1000: "M"
-    }
-    
-    def int_to_roman(num):
-        result = ""
-        for value in sorted(roman_numerals.keys(), reverse=True):
-            while num >= value:
-                result += roman_numerals[value]
-                num -= value
-        return result
-    
-    number = int(input("Enter an integer to convert to Roman numeral: "))
-    if number <= 0:
-        print("Please enter a positive integer.")
+
+    decision = input("roman to arabic | or | arabic to roman? (ra/ar)")
+    if decision == "ar":
+        arabic_int = input(" what be the integer that you need to convert? ")
+        if arabic_int.isdigit() and int(arabic_int) > 0:
+            arabic_int = int(arabic_int)   
+            ar(arabic_int)
+        else:
+            print("aye! enter a positve whole number or as some might call it, a real number.")
+    elif decision == "ra":
+        roman_str = input("what be the roman numeral that you need to convert? ")
+        if isinstance(roman_str, str):
+            ra(roman_str)
+        else:
+            print("aye! enter a valid roman numeral.")
     else:
-        roman_numeral = int_to_roman(number)
-        print(f"Roman numeral for {number} is {roman_numeral}")
+        print("aye! enter a valid decision, either 'ar' or 'ra'.")
+
+
+
 
 
 
