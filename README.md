@@ -4,7 +4,7 @@
 
 A comprehensive collection of essential everyday applications built in Python, designed as a unified platform similar to an operating system. This project features six fully functional applications accessible through a single interface:
 
-🧮 Calculator - A feature-rich calculator with a visual ASCII interface supporting basic arithmetic operations (+, -, *, /, %)
+🧮 Calculator - A feature-rich calculator with a visual ASCII interface supporting basic arithmetic operations (+, -, *, /)
 
 🔐 Password Generator - Secure password creation tool that generates customizable passwords with letters, numbers, and special characters
 
