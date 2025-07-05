@@ -1,22 +1,7 @@
 import random
 import string
 
-# Main menu and application selection
-print("=" * 50)
-print("         WELCOME TO EVERYDAY APP OS")
-print("=" * 50)
-print("Choose an application:")
-print("1. Calculator")
-print("2. Password Generator") 
-print("3. Dice Roller Simulator")
-print("4. Quizzler")
-print("5. Hangman")
-print("6. Roman Numeral Converter")
-print("=" * 50)
 
-appnum = int(input("Enter your choice (1-6): "))
-print(f"\nYou have selected application number: {appnum}")
-print("=" * 50)
 
 def calculator():
     print("\n" + "=" * 40)
@@ -71,6 +56,15 @@ def calculator():
         
     except ValueError:
         print("❌ Error: Please enter valid numbers!")
+
+
+
+
+
+
+
+
+
 def password_generator():
     print("\n" + "=" * 40)
     print("        PASSWORD GENERATOR")
@@ -94,6 +88,14 @@ def password_generator():
         
     except ValueError:
         print("❌ Error: Please enter a valid number!")
+
+
+
+
+
+
+
+
 def dice_roller():
     print("\n" + "=" * 40)
     print("       DICE ROLLER SIMULATOR")
@@ -117,6 +119,10 @@ def dice_roller():
         
     except ValueError:
         print("❌ Error: Please enter valid numbers!")
+
+
+
+
 
 
 
@@ -162,6 +168,12 @@ def quizzler():
     print(f"\n🎉 CONGRATULATIONS! 🎉")
     print(f"🏆 Perfect Score: {score}/{total_questions}")
     print("You answered all questions correctly! 🌟")
+
+
+
+
+
+
 
 
 def hangman():
@@ -295,6 +307,13 @@ roman_numerals = {
     10: "X", 9: "IX", 5: "V", 4: "IV", 1: "I"
 }
 
+
+
+
+
+
+
+
 def ar(arabic):
     """Convert Arabic number to Roman numeral"""
     original_num = arabic
@@ -306,6 +325,13 @@ def ar(arabic):
     
     print(f"✅ The Roman numeral for {original_num} is: {result}")
     return result
+
+
+
+
+
+
+
 
 def ra(roman):
     """Convert Roman numeral to Arabic number"""
@@ -330,6 +356,13 @@ def ra(roman):
     
     print(f"✅ The Arabic numeral for {roman} is: {total}")
     return total
+
+
+
+
+
+
+
 
 def roman_numeral_converter():
     print("\n" + "=" * 40)
@@ -366,32 +399,56 @@ def roman_numeral_converter():
 
 
 
-
-
-
-
-
-
-# Application Router
-print("\n" + "=" * 50)
-print("            STARTING APPLICATION...")
+# Main menu and application selection
+print("=" * 50)
+print("         WELCOME TO EVERYDAY APP OS")
 print("=" * 50)
 
-match appnum:
-    case 1:
-        calculator()
-    case 2:
-        password_generator()
-    case 3:
-        dice_roller()
-    case 4:
-        quizzler()
-    case 5:
-        hangman()
-    case 6:
-        roman_numeral_converter()
-    case _:  # Default case
-        print("❌ Invalid application number! Please choose 1-6.")
+continue_choice = "y"
+
+while continue_choice == "y":
+    print("Choose an application:")
+    print("1. Calculator")
+    print("2. Password Generator") 
+    print("3. Dice Roller Simulator")
+    print("4. Quizzler")
+    print("5. Hangman")
+    print("6. Roman Numeral Converter")
+    print("=" * 50)
+
+    appnum = int(input("Enter your choice (1-6): "))
+    print(f"\nYou have selected application number: {appnum}")
+    print("=" * 50)
+
+
+
+    # Application Router
+    print("\n" + "=" * 50)
+    print("            STARTING APPLICATION...")
+    print("=" * 50)
+
+
+
+    match appnum:
+        case 1:
+            calculator()
+        case 2:
+            password_generator()
+        case 3:
+            dice_roller()
+        case 4:
+            quizzler()
+        case 5:
+            hangman()
+        case 6:
+            roman_numeral_converter()
+        case _:  # Default case
+            print("❌ Invalid application number! Please choose 1-6.")
+    
+    continue_choice = input("\n\nDo you want to use a different app? (y/n): ").lower().strip()
+    while continue_choice not in ["y", "n"]:
+        continue_choice = input("❌ Invalid answer. Please enter 'y' or 'n': ").lower().strip()
+
 
 print("\n" + "=" * 50)
 print("       THANK YOU FOR USING EVERYDAY APP OS!")
