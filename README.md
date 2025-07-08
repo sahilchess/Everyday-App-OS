@@ -1,5 +1,9 @@
 # Everyday App OS
 
+## ![Hackactime](https://hackatime-badge.hackclub.com/U05D9BJD4UC/Simple-Project)
+
+
+
 A comprehensive collection of essential everyday applications built in Python, designed as a unified platform similar to an operating system. This project features six fully functional applications accessible through a single interface:
 
 🧮 **Calculator** - A feature-rich calculator with a visual ASCII interface supporting basic arithmetic operations (+, -, *, /)
