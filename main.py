@@ -381,6 +381,46 @@ def roman_numeral_converter():
         print("❌ Invalid choice! Please enter 'ar' or 'ra'.")
 
 
+def devlog_formatter():
+    print("\n" + "=" * 40)
+    print("        DEVLOG FORMATTER")
+    print("=" * 40)
+    
+    a = input("Enter the title of the devlog: ")
+    b = input("Enter the subtitle of the devlog (optional): ")
+    c = input("Enter the body/description of the devlog: ")
+    d = input("Enter the attachment of the devlog (Use #cdn; optional): ")
+    e = input("Enter the author of the devlog: ")
+    f = input("Enter the date of the devlog (YYYY-MM-DD): ")
+
+    print("\n" + "=" * 40)
+    print("Formatted Devlog:")
+    print("=" * 40)
+    print(f"Title: {a}")
+    if b:
+        print(f"Subtitle: {b}")
+    print(f"Description: {c}")
+    if d:
+        print(f"Attachment: {d}")
+    print(f"Author: {e}")
+    print(f"Date: {f}")
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Main menu and application selection
@@ -398,9 +438,10 @@ while continue_choice == "y":
     print("4. Quizzler")
     print("5. Hangman")
     print("6. Roman Numeral Converter")
+    print("7. Devlog Formatter ")
     print("=" * 50)
 
-    appnum = int(input("Enter your choice (1-6): "))
+    appnum = int(input("Enter your choice (1-7): "))
     print(f"\nYou have selected application number: {appnum}")
     print("=" * 50)
 
@@ -426,6 +467,14 @@ while continue_choice == "y":
             hangman()
         case 6:
             roman_numeral_converter()
+        case 7:  # Placeholder for future app
+            devlog_formatter()
+        case 8:  # Placeholder for future app
+            print("🚧 This application is under construction! Please check back later. 🚧")
+        case 9:  # Placeholder for future app
+            print("🚧 This application is under construction! Please check back later. 🚧")
+        case 10:  # Placeholder for future app
+            print("🚧 This application is under construction! Please check back later. 🚧")
         case _:  # Default case
             print("❌ Invalid application number! Please choose 1-6.")
     
