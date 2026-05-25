@@ -1,26 +1,64 @@
-# Everyday App OS ![Hackactime](https://hackatime-badge.hackclub.com/U05D9BJD4UC/Simple-Project)
+# Everyday App OS
 
-A comprehensive collection of essential everyday applications built in Python, designed as a unified platform similar to an operating system. This project features six fully functional applications accessible through a single interface:
+![Hackatime](https://hackatime-badge.hackclub.com/U05D9BJD4UC/Simple-Project)
 
-🧮 **Calculator** - A feature-rich calculator with a visual ASCII interface supporting basic arithmetic operations (+, -, *, /)
+Everyday App OS is a Python terminal app that bundles multiple mini-apps and games behind one menu-driven interface.
 
-🔐 **Password Generator** - Secure password creation tool that generates customizable passwords with letters, numbers, and special characters
+## Included Apps
 
-🎲 **Dice Roller Simulator** - Customizable dice rolling application supporting multiple dice with variable sides for gaming and probability experiments
+1. **Calculator** – basic arithmetic (`+`, `-`, `*`, `/`)
+2. **Password Generator** – randomized passwords using letters, digits, and symbols
+3. **Dice Roller Simulator** – roll custom dice with configurable sides
+4. **Quizzler** – short general-knowledge quiz
+5. **Hangman** – topic-based word guessing game
+6. **Roman Numeral Converter** – Arabic ↔ Roman conversion
+7. **Devlog Formatter** – interactive devlog template formatter
 
-🧠 **Quizzler** - Interactive quiz game with multiple categories testing general knowledge with score tracking
+## Requirements
 
-🎮 **Hangman** - Classic word guessing game featuring multiple topics (programming languages, sports, animals, food, colors) with ASCII art hangman stages
+- Python **3.10+** (the main menu uses `match/case`)
+- No third-party dependencies
 
-🧮 **Roman Numeral Converter** - Bidirectional converter supporting both Arabic-to-Roman and Roman-to-Arabic number conversion
+## Quick Start
 
-Future plans include expanding this into a web-based application with additional utilities like a stock price checker, weather app, and other everyday tools, creating a comprehensive digital toolkit accessible through a modern web interface.
+```bash
+python main.py
+```
 
+If `python` does not work on your system, try:
 
-## 🤝 Contributing
+```bash
+python3 main.py
+```
 
-Feel free to fork this project and submit pull requests for improvements!
+## How It Works
 
-## 📄 License
+1. Start the program.
+2. Choose an app from the numbered menu.
+3. Follow on-screen prompts.
+4. After each run, choose whether to open another app.
 
-This project is open source and available under the MIT License.
+## Repository Contents
+
+- `main.py` – all app logic and the main menu loop
+- `DEVLOG.md` – project progress notes
+- `INSTALLATION_GUIDE_FOR_V1.md` – expanded setup/troubleshooting notes
+
+## Roadmap
+
+- Add more utilities and mini-games
+- Improve validation and edge-case handling
+- Explore migration to a web interface in a future version
+
+## Contributing
+
+Contributions and suggestions are welcome.
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
