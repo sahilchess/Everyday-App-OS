@@ -7,7 +7,7 @@ Everyday App OS is a Python terminal app that bundles multiple mini-apps and gam
 ## Included Apps
 
 1. **Calculator** – basic arithmetic (`+`, `-`, `*`, `/`)
-2. **Password Generator** – randomized secure-looking passwords
+2. **Password Generator** – randomized passwords using letters, digits, and symbols
 3. **Dice Roller Simulator** – roll custom dice with configurable sides
 4. **Quizzler** – short general-knowledge quiz
 5. **Hangman** – topic-based word guessing game
@@ -16,7 +16,7 @@ Everyday App OS is a Python terminal app that bundles multiple mini-apps and gam
 
 ## Requirements
 
-- Python **3.10+** (required for `match` statements)
+- Python **3.10+** (the main menu uses `match/case`)
 - No third-party dependencies
 
 ## Quick Start
